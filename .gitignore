@@ -1,0 +1,17 @@
+#java ######
+*.class
+
+# Package Files #
+*.jar
+*.war
+#intellij IDEA
+*.iml
+.idea/
+######other####
+.project
+.classpath
+.DS_Store
+.settings/
+target/
+bin/
+classess/
