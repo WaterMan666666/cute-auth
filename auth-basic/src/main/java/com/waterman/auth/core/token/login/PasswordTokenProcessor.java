@@ -1,5 +1,6 @@
 package com.waterman.auth.core.token.login;
 
+import com.waterman.auth.core.Token;
 import com.waterman.auth.core.User;
 
 /**
@@ -11,12 +12,16 @@ public class PasswordTokenProcessor extends LoginTokenProcessor<PasswordToken> {
 
 
     @Override
-    public boolean isTypeMatch(PasswordToken token) {
-        return false;
+    public boolean isTypeMatch(Token token) {
+        return token instanceof PasswordToken;
     }
 
     @Override
     public User parseToken(PasswordToken token) {
-        return null;
+        User user = new User();
+        user.setId("1");
+        user.setRealName("admin");
+        user.setUsername("admin");
+        return user;
     }
 }

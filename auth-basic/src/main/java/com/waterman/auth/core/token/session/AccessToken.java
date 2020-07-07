@@ -1,5 +1,6 @@
 package com.waterman.auth.core.token.session;
 
+import com.waterman.auth.basic.enums.SessionTokenType;
 import com.waterman.auth.core.SessionToken;
 
 /**
@@ -11,7 +12,8 @@ public class AccessToken extends SessionToken {
 
 
     public AccessToken(String accesstoken) {
-        super(accesstoken);
+
+        super(accesstoken, SessionTokenType.AccessToken);
     }
 
 }

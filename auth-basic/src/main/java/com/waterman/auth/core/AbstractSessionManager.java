@@ -4,6 +4,8 @@ import com.waterman.auth.basic.enums.LoginScop;
 import com.waterman.auth.basic.enums.SessionTokenType;
 import com.waterman.auth.core.token.login.LoginTokenProcessor;
 import com.waterman.auth.core.token.session.SessionTokenProcessor;
+import com.waterman.auth.web.FilterChainResolver;
+import com.waterman.auth.web.filter.manager.AuthFilterChainManager;
 
 import java.util.List;
 

@@ -12,8 +12,7 @@ public class PasswordToken extends LoginToken {
     private String username;
     private String password;
 
-    public PasswordToken(String username, String password,String clientId, String domain) {
-        super(clientId,domain);
+    public PasswordToken(String username, String password) {
         this.username = username;
         this.password = password;
     }

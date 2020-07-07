@@ -1,5 +1,6 @@
 package com.waterman.auth.core.token.session;
 
+import com.waterman.auth.basic.enums.SessionTokenType;
 import com.waterman.auth.core.SessionToken;
 
 /**
@@ -12,7 +13,7 @@ public class CookieToken extends SessionToken {
 
 
     public CookieToken(String cookie){
-        super(cookie);
+        super(cookie, SessionTokenType.Cookie);
     }
     @Override
     public String getToken() {

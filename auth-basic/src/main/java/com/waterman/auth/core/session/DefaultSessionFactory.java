@@ -3,6 +3,8 @@ package com.waterman.auth.core.session;
 import com.waterman.auth.core.Session;
 import com.waterman.auth.core.SessionFactory;
 
+import java.util.UUID;
+
 /**
  * @author tongdong
  * @Date: 2020/6/28
@@ -11,6 +13,8 @@ import com.waterman.auth.core.SessionFactory;
 public class DefaultSessionFactory implements SessionFactory {
     @Override
     public Session generateSession() {
-        return null;
+        DefaultSession session = new DefaultSession();
+        session.setId(UUID.randomUUID().toString());
+        return session;
     }
 }

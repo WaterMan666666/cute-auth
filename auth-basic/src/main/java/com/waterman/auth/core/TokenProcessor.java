@@ -11,5 +11,5 @@ public interface TokenProcessor<T extends Token> {
     /**
      *
      */
-    boolean isTypeMatch(T token);
+    boolean isTypeMatch(Token token);
 }

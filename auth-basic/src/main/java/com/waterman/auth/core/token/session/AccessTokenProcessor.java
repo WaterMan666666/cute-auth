@@ -1,6 +1,7 @@
 package com.waterman.auth.core.token.session;
 
 import com.waterman.auth.core.Session;
+import com.waterman.auth.core.SessionDao;
 import com.waterman.auth.core.SessionToken;
 import com.waterman.auth.core.Token;
 
@@ -11,15 +12,20 @@ import com.waterman.auth.core.Token;
  */
 public class AccessTokenProcessor extends SessionTokenProcessor {
 
+    private SessionDao sessionDao;
+
+    public AccessTokenProcessor(SessionDao sessionDao) {
+        this.sessionDao = sessionDao;
+    }
 
     @Override
     public boolean isTypeMatch(Token token) {
-        return false;
+        return token instanceof AccessToken;
     }
 
 
     @Override
     public Session parseToken(SessionToken token) {
-        return null;
+        return sessionDao.readSession(token.getToken());
     }
 }

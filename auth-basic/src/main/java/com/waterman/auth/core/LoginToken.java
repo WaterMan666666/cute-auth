@@ -19,10 +19,7 @@ public abstract class LoginToken implements Token {
     public LoginToken() {
     }
 
-    public LoginToken(String clientId, String redirectUri) {
-        this.clientId = clientId;
-        this.redirectUri = redirectUri;
-    }
+
 
     public String getClientId() {
         return clientId;

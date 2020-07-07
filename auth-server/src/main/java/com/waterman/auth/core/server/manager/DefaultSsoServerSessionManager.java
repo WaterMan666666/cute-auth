@@ -59,7 +59,6 @@ public class DefaultSsoServerSessionManager extends AbstractServerSessionManager
         super.logout(token);
     }
 
-    @Override
     protected ClientService getClientService() {
         return null;
     }

@@ -3,6 +3,7 @@ package com.waterman.auth.core.client.manager;
 
 import com.waterman.auth.basic.enums.LoginScop;
 import com.waterman.auth.core.*;
+import com.waterman.auth.core.client.config.AuthClientConfig;
 import com.waterman.auth.core.client.session.dao.DefaultLocalSessionDao;
 import com.waterman.auth.core.session.DefaultSessionFactory;
 import com.waterman.auth.core.session.DefaultSessionTokenFactory;
@@ -20,16 +21,17 @@ public class DefaultSimpleClientSessionManager extends AbstractSessionManager {
 
 
 
-    public DefaultSimpleClientSessionManager(int sessionExpireTime) {
+    public DefaultSimpleClientSessionManager(AuthClientConfig config) {
         setScop(LoginScop.Singleton);
 
-        AccessTokenProcessor accessTokenProcessor = new AccessTokenProcessor();
+
+        DefaultLocalSessionDao sessionDao = new DefaultLocalSessionDao(config.getSessionExpireTime());
+        AccessTokenProcessor accessTokenProcessor = new AccessTokenProcessor(sessionDao);
         setSessionTokenProcessors(Arrays.asList(accessTokenProcessor));
 
         PasswordTokenProcessor passwordTokenProcessor = new PasswordTokenProcessor();
         setLoginTokenProcessors(Arrays.asList(passwordTokenProcessor));
-
-        setSessionDao(new DefaultLocalSessionDao(sessionExpireTime));
+        setSessionDao(sessionDao);
         setSessionTokenFactory(new DefaultSessionTokenFactory());
         setSessionFactory(new DefaultSessionFactory());
     }

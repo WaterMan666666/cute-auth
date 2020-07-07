@@ -15,8 +15,9 @@ public abstract class SessionToken implements Token {
     /** token的类型 */
     private SessionTokenType type;
 
-    public SessionToken(String token) {
+    public SessionToken(String token, SessionTokenType type) {
         this.token = token;
+        this.type = type;
     }
 
     @Override
